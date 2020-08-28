@@ -1,0 +1,460 @@
+{% load static %}
+{% load  staticencoder %}
+{% include 'header.html' %}
+
+
+<video id="tec-background-video" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted">
+  <source src="{% static '' %}images/learning-online-Trailer2.mp4" type="video/mp4" >
+</video>
+
+{% include 'nav.html' %}
+
+
+<section id="courses" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Our Courses</h2>
+            <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+            <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">IELTS, PTE and
+                CELPIP have become the global exams to check the English language proficiency of the students. Each exam
+                has a set pattern, scoring system and domain.</p>
+        </div>
+        <div class="row">
+            <div class="container" style="width:90%">
+                <div class="classe owl-carousel owl-theme">
+                    {% for course_list in course_list %}
+                    <div class="item">
+                        <div class="course-wrap-box">
+
+                            <img src="{% encode_dynmic_image course_list.image.path %}" alt="course-img"
+                                 class="img-fluid">
+                            <div class="course-sub-wrap">
+                                <h4>{{course_list.name}}</h4>
+                                <p>Price : &#x20B9;  {{course_list.price}}</p>
+                            </div>
+                            <a href="/buy-course/{{course_list.id}}" class="btn btn-dark buy-course-btn">Buy Now</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+            <script>
+    $(".classe").owlCarousel({
+      autoPlay: 5000, //Set AutoPlay to 3 seconds
+      items : 3,
+      navigation : true,
+      slideSpeed : 500,
+      paginationSpeed : 2000,
+      singleItem:false,
+      navigationText: [
+      "<i class='fa fa-angle-left'></i>",
+      "<i class='fa fa-angle-right'></i>"
+      ],
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+  });
+
+            </script>
+        </div>
+    </div>
+</section>
+<section id="features" class="section" data-stellar-background-ratio="0.2">
+    <div class="container">
+        <div class="feature-section">
+            <h2 class="feature-section-title">WHY WE ARE THE MOST RECOMMENDED TEACHING TEAM!</h2>
+            <hr class="fiture-lines">
+            <div class="row">
+                <div class="col-md-5">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftajindersenglishclasses%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId"
+                            width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                            allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="col-md-7">
+                    <ul class="feature-list">
+                        <li class="feature-item"><i class="fa fa-hand-o-right pr-3 handicon"></i>
+                            Focus on core techniques to achieve higher band score.
+                        </li>
+                        <li class="feature-item"><i class="fa fa-hand-o-right pr-3 handicon"></i>
+                            Highly dedicated and certified instructors.
+                        </li>
+                        <li class="feature-item"><i class="fa fa-hand-o-right pr-3 handicon"></i>
+                            Progress report for parents and students with regular mock tests.
+                        </li>
+                        <li class="feature-item"><i class="fa fa-hand-o-right pr-3 handicon"></i>
+                            Best infrastructure.
+                        </li>
+                        <li class="feature-item"><i class="fa fa-hand-o-right pr-3 handicon"></i>Real exam study
+                            material.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="awards" class="section">
+    <div class="container">
+        <div class="section-header wow fadeInDown" data-wow-delay="1s">
+            <h2 class="section-title">Awards</h2>
+            <hr class="lines">
+            <p class="section-subtitle">Winner of BEST Regional Partner Awards from IDP Australia,
+                <br> British Council and Pearson India</p>
+        </div>
+        <div class="row">
+            <div id="portfolio" class="row">
+                {% for gallery_list in gallery_list %}
+                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print wow fadeInDown"
+                     data-wow-delay="1s">
+                    <div class="portfolio-item">
+                        <div class="shot-item">
+                            <img src="{% encode_dynmic_image  gallery_list.gallery_photo.path %}"
+                                 alt="BEST Regional Partner Awards"/>
+                            <a class="overlay lightbox" href="uploads/{{gallery_list.gallery_photo}}">
+                                <i class="fa fa-eye item-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="awarbtnmore">
+            <a href="/all-awards" class="awardsbtn ">View All Awards</a>
+                </div>
+        </div>
+    </div>
+</section>
+<section id="apply-visa">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h2 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">Apply for Study Visa with TEC
+                Expert Team!</h2>
+            <p class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">Direct Collaboration with best
+                universities and colleges around the world. We offer the unbeatable discount for our students on study
+                visa services.</p>
+            <ul>
+                <li class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+                    <div class="apply-visa">
+                        <img src="{% static '' %}images/flag-canada.png" alt="Canada"/>
+                        <h5><strong>Canada</strong></h5>
+                    </div>
+                </li>
+                <li class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+                    <div class="apply-visa">
+                        <img src="{% static '' %}images/flag-new-zealand.png" alt="New Zealand"/>
+                        <h5><strong>New Zealand</strong></h5>
+                    </div>
+                </li>
+                <li class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+                    <div class="apply-visa">
+                        <img src="{% static '' %}images/flag-aus.png" alt="Australia"/>
+                        <h5><strong>Australia</strong></h5>
+                    </div>
+                </li>
+                <li class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+                    <div class="apply-visa">
+                        <img src="{% static '' %}images/flag-usa.png" alt="USA"/>
+                        <h5><strong>USA</strong></h5>
+                    </div>
+                </li>
+                <!--<img src="/uploads/{{course_list.image}}" alt="ielts course" class="home-course-img" />-->
+            </ul>
+            <p class="text-center visa-text wow fadeInDown"><img src="{% static '' %}images/gold-star.gif"
+                                                                 class="star-img" alt="apply for visa"/>
+                <strong>Study visa guidance from TEC expert team regarding country, course and subject according to
+                    student's previous profile and preferred choices. We will stay in touch with students and parents
+                    throughout visa application process, the admission and pre-departure guidance as well.</strong></p>
+        </div>
+    </div>
+</section>
+<div id="testimonial" class="section" data-stellar-background-ratio="0.1">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12">
+                <h2 class="wow zoomIn text-center" data-wow-duration="1000ms" data-wow-delay="100ms">Testimonials</h2>
+                <div class="touch-slider owl-carousel owl-theme">
+
+                    {% for testimonial_list in testimonial_list %}
+                    <div class="testimonial-item">
+                        <img src="{% encode_dynmic_image testimonial_list.client_photo.path %}"
+                             alt="Client Testimonial"/>
+                        <div class="testimonial-text">
+                            <p>{{testimonial_list.review}}</p>
+                            <h3>{{testimonial_list.client_name}}</h3>
+                            <span>{{testimonial_list.date}}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="blog" class="section">
+    <!--blog section-->
+    <div class="container mb-5">
+        <div class="section-header">
+            <h2 class="wow zoomIn section-title" data-wow-duration="1000ms" data-wow-delay="100ms">Recent Blogs</h2>
+            <hr class="lines">
+            <p class="section-subtitle wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Quaerat, dignissimos!
+                <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+        <div class="row">
+            {% for blog_list in blog_list %}
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item wow fadeInDown" data-wow-delay="1.2s">
+                <div class="blog-item-wrapper">
+                    <div class="blog-item-img">
+                        <a href="../blog/{{blog_list.slug}}"><img src="{% encode_dynmic_image  blog_list.image.path %}" alt="TEC blog" style="height:220px;"></a>
+                    </div>
+                    <div class="blog-item-text">
+                        <div class="meta-tags">
+                            <span class="date">Posted by -: {{blog_list.author.username}} {{blog_list.date}}</span>
+                        </div>
+                        <h3>
+                            <a href="../blog/{{blog_list.slug}}">{{blog_list.title}}</a>
+                        </h3>
+                        <p>
+                            {{blog_list.details|safe|truncatechars:200}}
+                        </p>
+                        <a href="../blog/{{blog_list.slug}}" class="btn-rm">Read More <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="view-all col-md-12">
+                <a href="../blogs" class="viewblogbtn2">View All Blogs</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="wow zoomIn section-title" data-wow-duration="1000ms" data-wow-delay="100ms">START LEARNING TODAY</h2>
+            <hr class="lines">
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="blog-border">
+                    <h5 class="class-title">IELTS, PTE, CELPIP</h5>
+                    <div class="blog-center-sec">
+                        <h6 class="class-timing">7:30am to 9:00pm</h6>
+                        <hr>
+                        <ul class="blog-list">
+                            <li class="blog-item-class">Morning and Evening Batches</li>
+                            <li class="blog-item-class">Mock Tests on Computers</li>
+                            <li class="blog-item-class">Access to Real Exam Material</li>
+                            <li class="blog-item-class">Online Access For Self-Practice</li>
+                        </ul>
+                    </div>
+                    <hr style="margin-bottom: 25px;">
+                    <div class="view-all col-md-12">
+                        <a href="/sign-up" class="viewblogbtn">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-border">
+                    <div class="blog-border">
+                        <h5 class="class-title">SPOKEN ENGLISH</h5>
+                        <div class="blog-center-sec">
+                            <h6 class="class-timing">4-Levels, Separate Kids Batches</h6>
+                            <hr>
+                            <ul class="blog-list">
+                                <li class="blog-item-class">Morning Batches</li>
+                                <li class="blog-item-class">Personality Development</li>
+                                <li class="blog-item-class">Grammar and Spoken Skills</li>
+                                <li class="blog-item-class">Small Batches</li>
+                            </ul>
+                        </div>
+                        <hr style="margin-bottom: 25px;">
+                        <div class="view-all col-md-12">
+                            <a href="/sign-up" class="viewblogbtn">Sign Up Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-border">
+                    <div class="blog-border">
+                        <h5 class="class-title">ONLINE CLASSES</h5>
+                        <div class="blog-center-sec">
+                            <h6 class="class-timing">Choose Your Own Slot</h6>
+                            <hr>
+                            <ul class="blog-list">
+                                <li class="blog-item-class">1:1 Teacher-Student Ratio</li>
+                                <li class="blog-item-class">Flexible Timings</li>
+                                <li class="blog-item-class">Access to Real Exam Material</li>
+                                <li class="blog-item-class">Online Access For Self-Practice</li>
+                            </ul>
+                        </div>
+                        <hr style="margin-bottom: 25px;">
+                        <div class="view-all col-md-12">
+                            <a href="/sign-up" class="viewblogbtn">Sign Up Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--FAQs-->
+<section id="faqs">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="wow zoomIn section-title" data-wow-duration="1000ms" data-wow-delay="100ms">FAQs</h2>
+            <hr class="lines">
+            <p class="section-subtitle wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Quaerat, dignissimos!
+                <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+        <div class="row">
+            <div id="accordion" role="tablist">
+
+                {% for faq_list in faq_list %}
+                <div class="card m-1">
+                    <div class="card-header" role="tab">
+                        <h5 class="heading5 mb-0">
+                            <a data-toggle="collapse" href="#section-{{faq_list.id}}" class="text-decoration-none">{{faq_list.question}}</a>
+                        </h5>
+                    </div>
+                    <div class="collapse" id="section-{{faq_list.id}}" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>{{faq_list.answer}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--FAQs-->
+<section id="map">
+    <div class="view-map wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+        <iframe width="100%" height="300" id="gmap_canvas"
+                src="https://maps.google.com/maps?q=Tajinder's%20English%20Classes&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+</section>
+<section id="contact" class="section" data-stellar-background-ratio="-0.2">
+    <div class="contact-form wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="100ms">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                    <div class="contact-us">
+                        <h3>Contact With Us</h3>
+                        <hr/>
+                        <div class="contact-address">
+                            <h5 class="heading5">Admission Wing</h5>
+                            <p>SCO 60, Level II, Phase - 7, Mohali, 160062, Punjab, India</p>
+                            <p class="phone">Mobile Number: <span>+91 981 461 5132</span></p>
+                            <p class="email">Email Address: <span>(info@teconline.in)</span></p>
+                            <hr/>
+                            <h5 class="heading5">Examination Wing</h5>
+                            <p>SCO 47, Level II, Phase - 7, Mohali, 160062, Punjab, India</p>
+                            <p class="phone">Mobile Number: <span>+91 981 411 5132</span></p>
+                            <p class="email">Email Address: <span>(info@teconline.in)</span></p>
+                             <hr/>
+                            <h3>Business Hours</h3>
+                            <ul>
+                                <li><strong>Monday - Saturday : </strong>9:00 am to 7:00 pm</li>
+                                <li><strong>Sunday : </strong>Closed</li>
+                            </ul>
+                        </div>
+                        <!--<div class="business-hours">-->
+
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-12">
+                    <div class="contact-block">
+
+                        <h4 id="course____"></h4>
+
+                        <form id="contactform">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" id="email" class="form-control"
+                                               name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>How Did You Find Us?</label>
+                                        <select class="form-control" name="find" id="find">
+                                            <option value="Facebook">Facebook</option>
+                                            <option value="Instagram">Instagram</option>
+                                            <option value="Twitter">Twitter</option>
+                                            <option value="Newspaper">Newspaper</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Your Message</label>
+                                        <textarea class="form-control" name="message" id="message"
+                                                  required></textarea>
+                                    </div>
+                                    <div class="submit-button text-center">
+                                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                                        <!--<div id="msgSubmit" class="h3 text-center hidden"></div>-->
+                                        <!--<div class="clearfix"></div>-->
+                                    </div>
+                                     <div class="social-icons">
+                            <ul>
+                                <li class="facebook"><a href="https://www.facebook.com/tajindersenglishclasses/"
+                                                        target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="https://twitter.com/tajinder_s" target="_blank"><i
+                                        class="fa fa-twitter"></i></a></li>
+                                <!--<li class="linkedin"><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>-->
+                                <li class="instagram"><a href="https://www.instagram.com/tajinder_english_classes/"
+                                                         target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <!--<li class="youtube"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>-->
+                            </ul>
+                        </div>
+                                </div>
+                            </div>
+                        </form>
+                        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                        <script>
+                        $("#contactform").on("submit", function (e) {
+                            e.preventDefault();
+
+
+                              $.ajax({
+                               type: "POST",
+                                url: 'Contact_us_save',
+                                data:  $('#contactform').serialize(),
+                                success: function (data) {
+                                <!--alert(data);-->
+                                  $("#course____").html(data);
+                                  document.getElementById("contactform").reset();
+
+                                }
+                              });
+
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
